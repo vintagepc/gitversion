@@ -53,7 +53,7 @@ endfunction(GET_GIT_VERSION OUTPUT_VARIABLE)
 
 function(GET_GIT_SEMVER OUTPUT_VARIABLE)
   GET_GIT_VERSION(TEMP_VERSION)
-  STRING(REGEX MATCH "^v([0-9]+\\.[0-9]+\\.[0-9]+)" match "${TEMP_VERSION}" )
+  STRING(REGEX MATCH "^v?([0-9]+\\.[0-9]+\\.[0-9]+)" match "${TEMP_VERSION}" )
   if (NOT match)
     message(STATUS "No semver detected in version string.")
     SET(${OUTPUT_VARIABLE}  "0.0.0" CACHE INTERNAL "${OUTPUT_VARIABLE}")
